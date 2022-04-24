@@ -1,0 +1,131 @@
+// 字体颜色
+@fontColor: #ecf0f1;
+
+/* 设置鼠标进入时，生成大圆*/
+@keyframes in {
+
+    0% {
+        width: 0;
+        height: 0;
+    }
+    100% {
+        width: 1200px;
+        height: 1200px;
+    }
+}
+
+/* 设置鼠标离开时，大圆消失 */
+@keyframes out {
+    0% {
+        width: 1200px;
+        height: 1200px;
+    }
+    100% {
+        width: 0;
+        height: 0;
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #1d1928;
+}
+
+.container {
+    position: relative;
+    // 大圆超出部分不显示
+    overflow: hidden;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    width: 352px;
+    height: 450px;
+    margin: 100px auto;
+    border-radius: 20px;
+    background-color: #4b71a5;
+
+    //标题
+    h1 {
+        color: @fontColor;
+        font-weight: 300;
+        text-shadow: 2px 4px 3px rgba(0, 0, 0, .4);
+        // 压在大圆上面
+        z-index: 1;
+    }
+
+    //表单
+    form {
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: space-around;
+        align-items: center;
+        height: 250px;
+        // 压在大圆上面
+        z-index: 1;
+        // input框
+        .tbx {
+            width: 250px;
+            height: 40px;
+            // 防拖拽
+            outline: none;
+            background: none;
+            border: none;
+            color: @fontColor;
+            border-bottom: 1px solid #fff;
+
+            &::placeholder {
+                font-size: 15px;
+                color: @fontColor;
+            }
+        }
+
+        // 登录按钮
+        .sub {
+            width: 250px;
+            height: 40px;
+            font-size: 12px;
+            background: none;
+            border: none;
+            border: 1px solid #fff;
+            border-radius: 20px;
+            color: @fontColor;
+        }
+    }
+
+    //添加的元素
+    //添加元素的in属性
+    .in {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        // 从无到生成一个大圆
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+        background: #cf455f;
+        transform: translate(-50%, -50%);
+        animation: in 0.5s ease-out forwards;
+    }
+
+    //添加元素的out属性
+     .out{
+        position: absolute;
+        // 消失的位置用js算
+        top:0;
+        left:0;
+        display: block;
+        // 从大圆到消失
+        width: 1200px;
+        height: 1200px;
+        border-radius: 50%;
+        background: #cf455f;
+        transform: translate(-50%,-50%);
+        animation: out 0.5s ease-out forwards;
+    }
+}

@@ -1,0 +1,103 @@
+/* 设置鼠标进入时，生成大圆*/
+@keyframes in {
+  0% {
+    width: 0;
+    height: 0;
+  }
+  100% {
+    width: 1200px;
+    height: 1200px;
+  }
+}
+/* 设置鼠标离开时，大圆消失 */
+@keyframes out {
+  0% {
+    width: 1200px;
+    height: 1200px;
+  }
+  100% {
+    width: 0;
+    height: 0;
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: #1d1928;
+}
+.container {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  width: 352px;
+  height: 450px;
+  margin: 100px auto;
+  border-radius: 20px;
+  background-color: #4b71a5;
+}
+.container h1 {
+  color: #ecf0f1;
+  font-weight: 300;
+  text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+.container form {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-around;
+  align-items: center;
+  height: 250px;
+  z-index: 1;
+}
+.container form .tbx {
+  width: 250px;
+  height: 40px;
+  outline: none;
+  background: none;
+  border: none;
+  color: #ecf0f1;
+  border-bottom: 1px solid #fff;
+}
+.container form .tbx::placeholder {
+  font-size: 15px;
+  color: #ecf0f1;
+}
+.container form .sub {
+  width: 250px;
+  height: 40px;
+  font-size: 12px;
+  background: none;
+  border: none;
+  border: 1px solid #fff;
+  border-radius: 20px;
+  color: #ecf0f1;
+}
+.container .in {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: #cf455f;
+  transform: translate(-50%, -50%);
+  animation: in 0.5s ease-out forwards;
+}
+.container .out {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 1200px;
+  height: 1200px;
+  border-radius: 50%;
+  background: #cf455f;
+  transform: translate(-50%, -50%);
+  animation: out 0.5s ease-out forwards;
+}
