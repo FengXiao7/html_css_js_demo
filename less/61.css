@@ -1,0 +1,78 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style: none;
+}
+body {
+  /* 100%窗口高度 */
+  height: 100vh;
+  /* 弹性布局 居中 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(200deg, #eef1f5, #6982bd);
+}
+.swipe {
+  position: relative;
+  width: 800px;
+  height: 500px;
+  text-align: center;
+  overflow: hidden;
+}
+.swipe label[for^="indicator"] {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 460px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.swipe label[for="indicator1"] {
+  left: 43%;
+}
+.swipe label[for="indicator2"] {
+  left: 48%;
+}
+.swipe label[for="indicator3"] {
+  left: 53%;
+}
+.swipe #indicator1:checked ~ ul {
+  margin-left: 0;
+}
+.swipe #indicator2:checked ~ ul {
+  margin-left: -800px;
+}
+.swipe #indicator3:checked ~ ul {
+  margin-left: -1600px;
+}
+.swipe #indicator1:checked + label[for="indicator1"] {
+  background-color: #fff;
+}
+.swipe #indicator2:checked + label[for="indicator2"] {
+  background-color: #fff;
+}
+.swipe #indicator3:checked + label[for="indicator3"] {
+  background-color: #fff;
+}
+.swipe ul {
+  width: 300%;
+  transition: all 0.3s;
+}
+.swipe ul li {
+  float: left;
+  width: 800px;
+  height: 500px;
+  font-size: 50px;
+  line-height: 500px;
+}
+.swipe ul li:nth-child(1) {
+  background-color: lightcoral;
+}
+.swipe ul li:nth-child(2) {
+  background-color: lightseagreen;
+}
+.swipe ul li:nth-child(3) {
+  background-color: lightsalmon;
+}
