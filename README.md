@@ -18,6 +18,54 @@
 
 <img src="https://picture-feng.oss-cn-chengdu.aliyuncs.com/img/133.gif" style="zoom: 100%"></img>
 
+我做的效果：
+
+<img src="C:\Users\FengXiao7\Pictures\GIF\134.gif" style="zoom: 100%"></img>
+
+### HTML：
+
+#### a标签href javascript:void(0)
+
+我一般都写#
+
+[a标签中href="javacript:;" href="javacript:void(0);" href="#"区别 - 掘金 (juejin.cn)](https://juejin.cn/post/6844903712289193991)
+
+### CSS：
+
+#### opacity: 0隐藏元素
+
+传送门：
+
+[(26条消息) opacity: 0、visibility: hidden、display: none 优劣和适用场景，以及隐藏元素的几种方法_青颜的天空的博客-CSDN博客_opacity:0;](https://blog.csdn.net/a1056244734/article/details/106758350)
+
+博客中说display: none会引起回流和重绘，但我看文章说display: none可以减少回流会重绘啊，有点懵
+
+####    pointer-events: none;
+
+传送门：[pointer-events - CSS（层叠样式表） | MDN (mozilla.org)](https://developer.mozilla.org/zh-CN/docs/Web/CSS/pointer-events)
+
+span覆盖着复选框，鼠标放到span上是点不中复选框的，这个属性就可以解决这个问题，即便鼠标放到span上点击也能选中或取消选中复选框 
+
+#### 多个transition
+
+transition: transform 0.5s ease-in-out,top 0.5s ease-in-out 0.5s;
+
+有执行顺序喔，第四个时间是延迟生效时间喔，不要忘了
+
+#### nth-of-type
+
+我这里用的是nth-of-type，不要忘了它和nth-child的区别喔。
+
+## 动画思想：
+
+![image-20220427015530144](https://picture-feng.oss-cn-chengdu.aliyuncs.com/img/image-20220427015530144.png)
+
+把所有隐藏和过渡去掉的效果：
+
+是不是清楚了很多？hhh
+
+<img src="https://picture-feng.oss-cn-chengdu.aliyuncs.com/img/135.gif" style="zoom: 100%"></img>
+
 # 登录页
 
 ## 案例1：hover效果登录页
@@ -66,7 +114,7 @@ mouseenter的时候生成一个大圆，leave的时候把圆高宽变为0就行
 
 这个以前写过，还是很简单的喔。
 
-## 效果：
+### 效果：
 
 <img src="https://picture-feng.oss-cn-chengdu.aliyuncs.com/img/132.gif" style="zoom: 100%"></img>
 
@@ -80,7 +128,9 @@ mouseenter的时候生成一个大圆，leave的时候把圆高宽变为0就行
 
 ### 贝塞尔曲线
 
-自定义运动轨迹
+自定义运动轨迹，建议自己在控制台拖。以前图形学学过，不过忘完了……
+
+
 
 # 轮播图
 
