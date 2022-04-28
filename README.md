@@ -38,7 +38,7 @@
 
 [(26条消息) opacity: 0、visibility: hidden、display: none 优劣和适用场景，以及隐藏元素的几种方法_青颜的天空的博客-CSDN博客_opacity:0;](https://blog.csdn.net/a1056244734/article/details/106758350)
 
-博客中说display: none会引起回流和重绘，但我看文章说display: none可以减少回流会重绘啊，有点懵
+博客中说display: none会引起回流和重绘，但我看有些文章又说display: none可以减少回流会重绘啊，有点懵
 
 ####    pointer-events: none;
 
@@ -194,3 +194,100 @@ name属性一样，即为同一个单选列表
 <img src="https://picture-feng.oss-cn-chengdu.aliyuncs.com/img/131.gif" style="zoom: 100%"></img>
 
 ![image-20220425143624291](https://picture-feng.oss-cn-chengdu.aliyuncs.com/img/image-20220425143624291.png)
+
+# 搜索
+
+## 案例92：全屏搜索栏
+
+### 效果：
+
+<img src="https://picture-feng.oss-cn-chengdu.aliyuncs.com/img/136.gif" style="zoom: 100%"></img>
+
+### 我做的效果：
+
+<img src="https://picture-feng.oss-cn-chengdu.aliyuncs.com/img/137.gif" style="zoom: 100%"></img>
+
+### CSS
+
+#### clip-path
+
+东西有点多喔，很值得深究。
+
+[觉得自己的页面不够花哨吗，试试clip-path吧 - 掘金 (juejin.cn)](https://juejin.cn/post/7076371912711995423)
+
+### 动画思想：
+
+两个字：隐藏！
+
+这个案例大量使用了隐藏。先看html结构。有两个input框，其中一个是checkbox，另一个是text。
+
+还有3个图标，其中两个搜索图标，一个关闭图标。
+
+```html
+<!-- input输入框，隐藏 -->
+	<input type="checkbox" id="search_btn" hidden>
+
+    <label for="search_btn" class="search-btn">
+        <i class="fa fa-search" aria-hidden="true"></i>
+    </label>
+    <label for="search_btn" class="close-btn">
+        <i class="fa fa-close" aria-hidden="true"></i>
+    </label>
+    <div class="container">
+        <div class="search-box">
+            <input type="text" placeholder="请输入..">
+            <i class="fa fa-search" aria-hidden="true"></i>
+        </div>
+    </div>
+```
+
+整体来说，页面由两部分组成。
+
+![image-20220428132508552](https://picture-feng.oss-cn-chengdu.aliyuncs.com/img/image-20220428132508552.png)
+
+![image-20220428132535607](https://picture-feng.oss-cn-chengdu.aliyuncs.com/img/image-20220428132535607.png)
+
+简单来说，search图标1(就是第一幅图里的，以下简称s1)和close图标(以下简称c)。通过label绑定了同一个checkbox。
+
+我们点击checkbox会发生什么呢？
+
+```less
+// checkbox值改变后
+#search_btn:checked {
+    // 搜索图标1隐藏
+    &+.search-btn {
+        display: none;
+    }
+    // 关闭图标显示
+    &~.close-btn {
+        display: block;
+    }
+    //container占满全屏
+    &~.container {
+        clip-path: circle(100%);
+        //搜索框盒子有了宽度
+        .search-box {
+            width: 500px;
+        }
+    }
+}
+```
+
+然后就是两个页面的动画过渡效果。
+
+是通过clip-path完成的。
+
+最开始：
+
+```css
+clip-path: circle(40px at 50% 50%);
+```
+
+第二个页面：
+
+```less
+ //container占满全屏
+    &~.container {
+        clip-path: circle(100%);
+```
+
