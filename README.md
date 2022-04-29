@@ -128,9 +128,64 @@ mouseenter的时候生成一个大圆，leave的时候把圆高宽变为0就行
 
 ### 贝塞尔曲线
 
-自定义运动轨迹，建议自己在控制台拖。以前图形学学过，不过忘完了……
+自定义运动轨迹，建议自己在控制台拖。以前图形学还学过，不过忘完了……
+
+## 案例122：高光立体壁画式卡片悬停特效
+
+### 效果：
+
+<img src="C:\Users\FengXiao7\Pictures\GIF\138.gif" style="zoom: 100%"></img>
+
+我做的效果：
+
+<img src="https://picture-feng.oss-cn-chengdu.aliyuncs.com/img/141.gif" style="zoom: 100%"></img>
+
+### CSS：
+
+#### background-size
+
+这个就是设置背景图片大小的喔，以前也记过，可以看看。重点记住cover和contain两种写法
+
+### 动画思想：
+
+#### 旋转：
+
+图片有个小旋转，把旋转中心设为top center就行。hover的时候先往上挪一点，再往外转一点。
 
 
+
+#### 白光掠过效果：
+
+这个是真的秒！
+
+```js
+ /* 背景渐变(高光效果) */
+                background: linear-gradient(300deg,rgba(255,255,255,0) 40%,rgba(255,255,255,0.3) 50%,rgba(255,255,255,0) 60%);
+                /* 默认上移出可视范围 */
+                transform: translateY(-100%);
+                /* 设置过渡 */
+                transition: transform 0.85s cubic-bezier(0.165, 0.84, 0.44, 1);
+```
+
+hover的时候
+
+```css
+transform: translateY(100%);
+```
+
+看这个动图就明白了吧~。我们用伪元素装这个渐变色就行，还可以调整角度
+
+<img src="https://picture-feng.oss-cn-chengdu.aliyuncs.com/img/139.gif" style="zoom: 50%"></img>
+
+还有个不容易注意到的动画效果
+
+#### 阴影：
+
+<img src="https://picture-feng.oss-cn-chengdu.aliyuncs.com/img/140.gif" style="zoom: 40%"></img>
+
+有个hover阴影扩散的效果
+
+这个也很简单，hover的时候跟着照片一起转，加上scale放大一点。自己调调还可以适配白光掠过的角度
 
 # 轮播图
 
