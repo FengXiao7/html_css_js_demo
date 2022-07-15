@@ -1,6 +1,6 @@
 # 说明：
 
-学一下一些动画demo，我会重写作者的案例
+学一下一些小案例，我会重写作者的案例
 
 欢迎支持原作者：https://gitee.com/wyanhui02/html_css_demo.git
 
@@ -20,7 +20,7 @@
 
 我做的效果：
 
-<img src="C:\Users\FengXiao7\Pictures\GIF\134.gif" style="zoom: 100%"></img>
+<img src="https://picture-feng.oss-cn-chengdu.aliyuncs.com/img/134.gif" style="zoom: 100%"></img>
 
 ### HTML：
 
@@ -134,7 +134,7 @@ mouseenter的时候生成一个大圆，leave的时候把圆高宽变为0就行
 
 ### 效果：
 
-<img src="C:\Users\FengXiao7\Pictures\GIF\138.gif" style="zoom: 100%"></img>
+<img src="https://picture-feng.oss-cn-chengdu.aliyuncs.com/img/138.gif" style="zoom: 100%"></img>
 
 我做的效果：
 

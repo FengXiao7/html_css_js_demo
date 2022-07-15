@@ -1,31 +1,35 @@
-*{
+* {
     margin: 0;
     padding: 0;
 }
+
 @swipeWidth: 800px;
 @swipeHeight: 500px;
-li{
+
+li {
     list-style: none;
 }
-body{
+
+body {
     /* 100%窗口高度 */
     height: 100vh;
     /* 弹性布局 居中 */
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(200deg,#eef1f5,#6982bd);
+    background: linear-gradient(200deg, #eef1f5, #6982bd);
 }
 
-.swipe{
+.swipe {
     position: relative;
     width: @swipeWidth;
     height: @swipeHeight;
     // background-color: skyblue;
     text-align: center;
     overflow: hidden;
+
     // label小圆点
-    label[for^="indicator"]{
+    label[for^="indicator"] {
         position: absolute;
         width: 20px;
         height: 20px;
@@ -33,53 +37,66 @@ body{
         border-radius: 10px;
         background-color: rgba(255, 255, 255, .1);
     }
-    label[for="indicator1"]{
+
+    label[for="indicator1"] {
         left: 43%;
     }
-    label[for="indicator2"]{
+
+    label[for="indicator2"] {
         left: 48%;
     }
-    label[for="indicator3"]{
+
+    label[for="indicator3"] {
         left: 53%;
     }
+
     // 点击radio或input,改变ul的margin-left
-    #indicator1:checked ~ ul{
+    #indicator1:checked~ul {
         margin-left: 0;
     }
-    #indicator2:checked ~ ul{
+
+    #indicator2:checked~ul {
         margin-left: -@swipeWidth;
     }
-    #indicator3:checked ~ ul{
+
+    #indicator3:checked~ul {
         margin-left: -@swipeWidth * 2;
     }
+
     // 点击radio,改变小圆点颜色
-    #indicator1:checked + label[for="indicator1"]{
+    #indicator1:checked+label[for="indicator1"] {
         background-color: #fff;
     }
-    #indicator2:checked + label[for="indicator2"]{
+
+    #indicator2:checked+label[for="indicator2"] {
         background-color: #fff;
     }
-    #indicator3:checked + label[for="indicator3"]{
+
+    #indicator3:checked+label[for="indicator3"] {
         background-color: #fff;
     }
 
     // 展示图片
-    ul{
+    ul {
         width: 300%;
         transition: all .3s;
-        li{
+
+        li {
             float: left;
             width: @swipeWidth;
             height: @swipeHeight;
             font-size: 50px;
             line-height: @swipeHeight;
-            &:nth-child(1){
+
+            &:nth-child(1) {
                 background-color: lightcoral;
             }
-            &:nth-child(2){
+
+            &:nth-child(2) {
                 background-color: lightseagreen;
             }
-            &:nth-child(3){
+
+            &:nth-child(3) {
                 background-color: lightsalmon;
             }
         }
